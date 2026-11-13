@@ -1,0 +1,532 @@
+[
+  {
+    "id": "Q01",
+    "category": "single_document",
+    "question": "What are the main contraindications for warfarin?",
+    "expected_sources": [
+      "dailymed-warfarin.md"
+    ],
+    "required_terms": [
+      "contraindications",
+      "bleeding"
+    ]
+  },
+  {
+    "id": "Q02",
+    "category": "single_document",
+    "question": "What conditions or clinical situations are listed as contraindications for apixaban?",
+    "expected_sources": [
+      "dailymed-apixaban.md"
+    ],
+    "required_terms": [
+      "contraindications"
+    ]
+  },
+  {
+    "id": "Q03",
+    "category": "single_document",
+    "question": "What is the renal-function threshold at which metformin is contraindicated, and what does the label say about starting it in renal impairment?",
+    "expected_sources": [
+      "dailymed-metformin.md"
+    ],
+    "required_terms": [
+      "eGFR",
+      "30",
+      "45"
+    ]
+  },
+  {
+    "id": "Q04",
+    "category": "single_document",
+    "question": "What are the contraindications of amoxicillin, and what allergy history is especially relevant?",
+    "expected_sources": [
+      "dailymed-amoxicillin.md"
+    ],
+    "required_terms": [
+      "hypersensitivity",
+      "penicillin"
+    ]
+  },
+  {
+    "id": "Q05",
+    "category": "single_document",
+    "question": "What are the labeled indications and major contraindications for albuterol?",
+    "expected_sources": [
+      "dailymed-albuterol.md"
+    ],
+    "required_terms": [
+      "bronchospasm",
+      "hypersensitivity"
+    ]
+  },
+  {
+    "id": "Q06",
+    "category": "single_document",
+    "question": "What are the major contraindications and serious warnings associated with ibuprofen?",
+    "expected_sources": [
+      "dailymed-ibuprofen.md"
+    ],
+    "required_terms": [
+      "cardiovascular",
+      "gastrointestinal",
+      "bleeding"
+    ]
+  },
+  {
+    "id": "Q07",
+    "category": "single_document",
+    "question": "What are the contraindications for atorvastatin, and which serious muscle-related warning should be considered?",
+    "expected_sources": [
+      "dailymed-atorvastatin.md"
+    ],
+    "required_terms": [
+      "myopathy",
+      "rhabdomyolysis"
+    ]
+  },
+  {
+    "id": "Q08",
+    "category": "single_document",
+    "question": "What are the main warnings and overdose precautions for acetaminophen?",
+    "expected_sources": [
+      "dailymed-acetaminophen.md",
+      "medlineplus-acetaminophen.md"
+    ],
+    "required_terms": [
+      "liver",
+      "overdose"
+    ]
+  },
+  {
+    "id": "Q09",
+    "category": "single_document",
+    "question": "What are the important warnings for sertraline, including the risks of serotonin syndrome and bleeding?",
+    "expected_sources": [
+      "dailymed-sertraline.md"
+    ],
+    "required_terms": [
+      "serotonin syndrome",
+      "bleeding"
+    ]
+  },
+  {
+    "id": "Q10",
+    "category": "single_document",
+    "question": "What monitoring is required to adjust warfarin treatment, and what is the role of INR?",
+    "expected_sources": [
+      "dailymed-warfarin.md"
+    ],
+    "required_terms": [
+      "INR",
+      "monitoring"
+    ]
+  },
+  {
+    "id": "Q11",
+    "category": "single_document",
+    "question": "How should a missed dose of apixaban be handled according to the patient information?",
+    "expected_sources": [
+      "medlineplus-apixaban.md",
+      "dailymed-apixaban.md"
+    ],
+    "required_terms": [
+      "missed dose"
+    ]
+  },
+  {
+    "id": "Q12",
+    "category": "single_document",
+    "question": "What does the metformin label recommend around iodinated contrast imaging procedures?",
+    "expected_sources": [
+      "dailymed-metformin.md"
+    ],
+    "required_terms": [
+      "iodinated contrast",
+      "eGFR"
+    ]
+  },
+  {
+    "id": "Q13",
+    "category": "single_document",
+    "question": "What is the mechanism of action of albuterol described in the label?",
+    "expected_sources": [
+      "dailymed-albuterol.md"
+    ],
+    "required_terms": [
+      "beta",
+      "bronchodilation"
+    ]
+  },
+  {
+    "id": "Q14",
+    "category": "single_document",
+    "question": "What is the mechanism of action of metformin, and what does the document say about its effect on hepatic glucose production?",
+    "expected_sources": [
+      "dailymed-metformin.md"
+    ],
+    "required_terms": [
+      "hepatic glucose production"
+    ]
+  },
+  {
+    "id": "Q15",
+    "category": "multi_document",
+    "question": "Compare the contraindications of warfarin and apixaban. Which are shared and which are specific to one drug?",
+    "expected_sources": [
+      "dailymed-warfarin.md",
+      "dailymed-apixaban.md"
+    ],
+    "required_terms": [
+      "contraindications"
+    ]
+  },
+  {
+    "id": "Q16",
+    "category": "multi_document",
+    "question": "A patient taking warfarin is prescribed sertraline. What bleeding concern is described, and what monitoring or precautions do the documents recommend?",
+    "expected_sources": [
+      "dailymed-warfarin.md",
+      "dailymed-sertraline.md"
+    ],
+    "required_terms": [
+      "bleeding",
+      "INR"
+    ]
+  },
+  {
+    "id": "Q17",
+    "category": "multi_document",
+    "question": "Compare the bleeding risks and relevant warnings of warfarin, apixaban, and sertraline. Distinguish anticoagulant effects from the additional bleeding risk associated with sertraline.",
+    "expected_sources": [
+      "dailymed-warfarin.md",
+      "dailymed-apixaban.md",
+      "dailymed-sertraline.md"
+    ],
+    "required_terms": [
+      "bleeding",
+      "anticoagulant"
+    ]
+  },
+  {
+    "id": "Q18",
+    "category": "multi_document",
+    "question": "What interaction concerns arise when warfarin is used with ibuprofen or aspirin, based on the supplied labels and consumer information?",
+    "expected_sources": [
+      "dailymed-warfarin.md",
+      "dailymed-ibuprofen.md",
+      "dailymed-aspirin.md",
+      "medlineplus-aspirin.md"
+    ],
+    "required_terms": [
+      "bleeding",
+      "NSAID"
+    ]
+  },
+  {
+    "id": "Q19",
+    "category": "multi_document",
+    "question": "Compare the renal impairment considerations for metformin and amoxicillin. What renal thresholds or dose-adjustment guidance are explicitly provided?",
+    "expected_sources": [
+      "dailymed-metformin.md",
+      "dailymed-amoxicillin.md"
+    ],
+    "required_terms": [
+      "renal impairment",
+      "eGFR"
+    ]
+  },
+  {
+    "id": "Q20",
+    "category": "multi_document",
+    "question": "Compare the warnings about gastrointestinal bleeding for ibuprofen and aspirin. What risk factors or warning signs are mentioned?",
+    "expected_sources": [
+      "dailymed-ibuprofen.md",
+      "dailymed-aspirin.md",
+      "medlineplus-aspirin.md"
+    ],
+    "required_terms": [
+      "gastrointestinal",
+      "bleeding"
+    ]
+  },
+  {
+    "id": "Q21",
+    "category": "multi_document",
+    "question": "Compare the indications and major safety warnings for albuterol and acetaminophen. Avoid assuming they treat the same conditions.",
+    "expected_sources": [
+      "dailymed-albuterol.md",
+      "dailymed-acetaminophen.md"
+    ],
+    "required_terms": [
+      "indications",
+      "warnings"
+    ]
+  },
+  {
+    "id": "Q22",
+    "category": "multi_document",
+    "question": "What are the main differences between DailyMed and MedlinePlus information about warfarin in this corpus, particularly regarding dosing, monitoring, and patient precautions?",
+    "expected_sources": [
+      "dailymed-warfarin.md",
+      "medlineplus-warfarin.md"
+    ],
+    "required_terms": [
+      "INR",
+      "monitoring"
+    ]
+  },
+  {
+    "id": "Q23",
+    "category": "multi_document",
+    "question": "Compare the information on acetaminophen in the DailyMed label and MedlinePlus: uses, safe-use warnings, and overdose response.",
+    "expected_sources": [
+      "dailymed-acetaminophen.md",
+      "medlineplus-acetaminophen.md"
+    ],
+    "required_terms": [
+      "overdose",
+      "liver"
+    ]
+  },
+  {
+    "id": "Q24",
+    "category": "multi_document",
+    "question": "Compare the patient-facing precautions for apixaban and warfarin, including missed doses, bleeding symptoms, and the importance of not stopping treatment without advice.",
+    "expected_sources": [
+      "medlineplus-apixaban.md",
+      "medlineplus-warfarin.md"
+    ],
+    "required_terms": [
+      "bleeding",
+      "missed dose"
+    ]
+  },
+  {
+    "id": "Q25",
+    "category": "multi_document",
+    "question": "A patient takes atorvastatin and warfarin. What does the atorvastatin label report about effects on prothrombin time, and what broader interaction precautions are documented for warfarin?",
+    "expected_sources": [
+      "dailymed-atorvastatin.md",
+      "dailymed-warfarin.md"
+    ],
+    "required_terms": [
+      "prothrombin time",
+      "warfarin"
+    ]
+  },
+  {
+    "id": "Q26",
+    "category": "multi_document",
+    "question": "Compare the major warnings for sertraline and ibuprofen that could increase bleeding risk when they are used together. What does the corpus support, and what remains uncertain?",
+    "expected_sources": [
+      "dailymed-sertraline.md",
+      "dailymed-ibuprofen.md"
+    ],
+    "required_terms": [
+      "bleeding"
+    ]
+  },
+  {
+    "id": "Q27",
+    "category": "multi_document",
+    "question": "Compare amoxicillin and warfarin interactions. What does the amoxicillin label say about oral anticoagulants, and what does the warfarin label say about antibiotics?",
+    "expected_sources": [
+      "dailymed-amoxicillin.md",
+      "dailymed-warfarin.md"
+    ],
+    "required_terms": [
+      "oral anticoagulants",
+      "INR",
+      "antibiotics"
+    ]
+  },
+  {
+    "id": "Q28",
+    "category": "multi_document",
+    "question": "Compare the warnings about pregnancy for warfarin and apixaban. What important distinctions are stated in the labels?",
+    "expected_sources": [
+      "dailymed-warfarin.md",
+      "dailymed-apixaban.md"
+    ],
+    "required_terms": [
+      "pregnancy",
+      "fetal"
+    ]
+  },
+  {
+    "id": "Q29",
+    "category": "multi_document",
+    "question": "Compare atorvastatin and metformin with respect to hepatic impairment or liver-related safety warnings. State only what each label explicitly supports.",
+    "expected_sources": [
+      "dailymed-atorvastatin.md",
+      "dailymed-metformin.md"
+    ],
+    "required_terms": [
+      "hepatic impairment",
+      "lactic acidosis"
+    ]
+  },
+  {
+    "id": "Q30",
+    "category": "multi_document",
+    "question": "Compare the patient counseling information for albuterol and amoxicillin: administration/use instructions, missed-dose guidance, and when to seek medical help.",
+    "expected_sources": [
+      "medlineplus-albuterol.md",
+      "medlineplus-amoxicillin.md"
+    ],
+    "required_terms": [
+      "how should this medicine be used",
+      "call your doctor"
+    ]
+  },
+  {
+    "id": "Q31",
+    "category": "glossary_reasoning",
+    "question": "Using GLOSSARY.md, explain the difference between pharmacokinetics and pharmacodynamics, then give one example from a drug document in this corpus for each concept.",
+    "expected_sources": [
+      "GLOSSARY.md",
+      "dailymed-albuterol.md",
+      "dailymed-metformin.md"
+    ],
+    "required_terms": [
+      "pharmacokinetics",
+      "pharmacodynamics"
+    ]
+  },
+  {
+    "id": "Q32",
+    "category": "glossary_reasoning",
+    "question": "Define contraindication, adverse effect, drug interaction, and therapeutic index using the glossary. Identify which of these concepts is directly relevant to warfarin bleeding warnings.",
+    "expected_sources": [
+      "GLOSSARY.md",
+      "dailymed-warfarin.md"
+    ],
+    "required_terms": [
+      "contraindication",
+      "adverse effect",
+      "drug interaction"
+    ]
+  },
+  {
+    "id": "Q33",
+    "category": "glossary_reasoning",
+    "question": "Explain what INR measures and why it matters for warfarin monitoring, using both the glossary and the warfarin label.",
+    "expected_sources": [
+      "GLOSSARY.md",
+      "dailymed-warfarin.md"
+    ],
+    "required_terms": [
+      "INR",
+      "monitoring"
+    ]
+  },
+  {
+    "id": "Q34",
+    "category": "glossary_reasoning",
+    "question": "Explain the difference between a drug's mechanism of action and its clinical indication, then illustrate the distinction using metformin.",
+    "expected_sources": [
+      "GLOSSARY.md",
+      "dailymed-metformin.md"
+    ],
+    "required_terms": [
+      "mechanism of action",
+      "indications"
+    ]
+  },
+  {
+    "id": "Q35",
+    "category": "abstention",
+    "question": "Does the supplied corpus provide a recommended adult dose for rivaroxaban in atrial fibrillation? If not, clearly state that the corpus does not contain a rivaroxaban document and do not invent a dose.",
+    "expected_sources": [],
+    "source_policy": "none",
+    "expected_status": "unsupported",
+    "required_terms": [
+      "rivaroxaban",
+      "not available"
+    ],
+    "required_term_alternatives": {
+      "not available": [
+        "does not contain",
+        "not contain",
+        "not in the corpus",
+        "no rivaroxaban"
+      ]
+    }
+  },
+  {
+    "id": "Q36",
+    "category": "abstention",
+    "question": "What is the current market price of apixaban in Morocco, and which pharmacy has the lowest price? Answer only if this information exists in the corpus.",
+    "expected_sources": [],
+    "source_policy": "none",
+    "expected_status": "unsupported",
+    "required_terms": [
+      "not provided",
+      "corpus"
+    ],
+    "required_term_alternatives": {
+      "not provided": [
+        "does not contain",
+        "not contain",
+        "not in the corpus",
+        "not available"
+      ]
+    }
+  },
+  {
+    "id": "Q37",
+    "category": "abstention",
+    "question": "Can you determine whether a specific patient should stop warfarin before dental surgery based only on the corpus? Explain the limits of the available information and avoid giving an individualized treatment instruction.",
+    "expected_sources": [
+      "dailymed-warfarin.md",
+      "medlineplus-warfarin.md"
+    ],
+    "required_terms": [
+      "dentistry",
+      "surgery"
+    ]
+  },
+  {
+    "id": "Q38",
+    "category": "abstention",
+    "question": "Does the corpus establish that combining sertraline and ibuprofen is always contraindicated? Distinguish a documented bleeding-risk concern from a formal contraindication.",
+    "expected_sources": [
+      "dailymed-sertraline.md",
+      "dailymed-ibuprofen.md"
+    ],
+    "required_terms": [
+      "bleeding",
+      "contraindication"
+    ]
+  },
+  {
+    "id": "Q39",
+    "category": "multi_hop",
+    "question": "A patient with eGFR 25 mL/min is being considered for metformin and is also taking ibuprofen. What does the corpus say about metformin at this renal function and the renal warnings for ibuprofen? Do not make a treatment decision beyond the documents.",
+    "expected_sources": [
+      "dailymed-metformin.md",
+      "dailymed-ibuprofen.md"
+    ],
+    "required_terms": [
+      "eGFR",
+      "30",
+      "renal"
+    ]
+  },
+  {
+    "id": "Q40",
+    "category": "multi_hop",
+    "question": "A patient on warfarin is prescribed amoxicillin and also reports taking aspirin. Identify the interaction or bleeding concerns documented across the relevant files, and explain what monitoring or clinical review the sources support without prescribing a change.",
+    "expected_sources": [
+      "dailymed-warfarin.md",
+      "dailymed-amoxicillin.md",
+      "dailymed-aspirin.md",
+      "medlineplus-aspirin.md"
+    ],
+    "required_terms": [
+      "bleeding",
+      "oral anticoagulants",
+      "INR"
+    ]
+  }
+]
