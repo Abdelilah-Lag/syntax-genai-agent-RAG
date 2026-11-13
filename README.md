@@ -363,17 +363,12 @@ Get-ChildItem app/results/
 Each report preserves the results of a particular execution, allowing performance comparisons and regression analysis.
 
 **Important:** The benchmark command evaluates the running application. It does not start the application itself. Make sure the API is accessible at `http://localhost:8000` before starting the evaluation.
-## 🎥 Project Demonstration
 
-<p align="center">
-  <iframe
-    src="https://drive.google.com/file/d/158mG4zJWmh36O7me5iJHRYCKC9S_BXjU/view?usp=sharing"
-    width="800"
-    height="450"
-    allow="autoplay"
-    allowfullscreen>
-  </iframe>
-</p>
+<a href="https://drive.google.com/file/d/158mG4zJWmh36O7me5iJHRYCKC9S_BXjU/view?usp=sharing">
+  <img src="https://drive.google.com/file/d/158mG4zJWmh36O7me5iJHRYCKC9S_BXjU/view?usp=sharing"
+       alt="Agentic RAG Demo"
+       width="800">
+</a>
 ---
 
 ## 6. Evaluation Results
