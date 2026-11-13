@@ -186,13 +186,12 @@ syntax-genai-agent-RAG/
 ├── frontend/
 │   ├── index.html
 │   ├── app.js
-│   ├── styles.css
+│   ├── style.css
 │   └── images/
 │       ├── ensam.jpg
 │       └── syntax.png
 │
 ├── .dockerignore
-├── .env
 ├── .env.example
 ├── .gitignore
 ├── Dockerfile
