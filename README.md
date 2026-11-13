@@ -367,10 +367,15 @@ Each report preserves the results of a particular execution, allowing performanc
 ## 🎥 Project Demonstration
 
 <p align="center">
-  <video width="100%" controls>
-    <source src="https://drive.google.com/uc?export=download&id=158mG4zJWmh36O7me5iJHRYCKC9S_BXjU" type="video/mp4">
-    Your browser does not support video playback.
-  </video>
+  <a href="https://drive.google.com/file/d/158mG4zJWmh36O7me5iJHRYCKC9S_BXjU/view">
+    <img src="https://drive.google.com/thumbnail?id=158mG4zJWmh36O7me5iJHRYCKC9S_BXjU&sz=w1000"
+         width="800"
+         alt="Agentic RAG System Demonstration">
+  </a>
+</p>
+
+<p align="center">
+  <i>Click the preview to watch the full demonstration.</i>
 </p>
 ---
 
