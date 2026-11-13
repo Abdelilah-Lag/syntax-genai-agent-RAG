@@ -110,17 +110,18 @@ The planner determines which tools are appropriate for a question. Search is the
 
 Tool execution is coordinated by the agent according to the generated execution plan.
 
+The architecture provides six available tools, although not every tool is necessarily selected during every benchmark execution.
+
 ---
 
 ## 4. Project Structure
 
-The following tree represents the actual project organization.
+The following tree represents the project organization. Runtime-generated evaluation reports are stored in `app/results/`.
 
 ```text
 syntax-genai-agent-RAG/
 │
 ├── app/
-│   │
 │   ├── main.py
 │   ├── run_eval.py
 │   ├── public_eval_set.json
@@ -156,7 +157,7 @@ syntax-genai-agent-RAG/
 │   │   └── __init__.py
 │   │
 │   ├── results/
-│   │   └── evaluation_20261113_015533.json
+│   │   └── evaluation_YYYYMMDD_HHMMSS.json
 │   │
 │   ├── retrieval/
 │   │   ├── embeddings.py
@@ -353,12 +354,6 @@ app/
     └── evaluation_YYYYMMDD_HHMMSS.json
 ```
 
-For example:
-
-```text
-app/results/evaluation_20261113_015533.json
-```
-
 To list the generated reports using PowerShell:
 
 ```powershell
@@ -373,22 +368,27 @@ Each report preserves the results of a particular execution, allowing performanc
 
 ## 6. Evaluation Results
 
-**Baseline evaluation: 13 November 2026**
+**Latest evaluation: 13 November 2026 — 04:02:28 UTC**
 
-The following results were obtained from the 40-question benchmark.
+**Dataset:** `public_eval_set.json`  
+**Benchmark size:** 40 questions
+
+The following results were obtained from the latest benchmark execution.
 
 ### Overall Results
 
-| Metric | Result |
+| Metric | Latest Result |
 |---|---:|
 | Total questions | 40 |
 | Successful executions | 40 / 40 |
+| Failed executions | 0 |
 | Execution success rate | 100% |
+| Questions with expected sources | 38 |
 | Average source recall | 95.61% |
-| Average source precision | 83.38% |
-| Average source F1 | 87.12% |
-| Average grounding score | 89.92% |
-| Required term recall | 95.00% |
+| Average source precision | 77.46% |
+| Average source F1 | 83.35% |
+| Average grounding score | 91.49% |
+| Average required-term recall | 96.25% |
 | Source policy compliance | 90.00% |
 | Correct abstention rate | 100% |
 | Unsupported answer rate | 0% |
@@ -396,84 +396,134 @@ The following results were obtained from the 40-question benchmark.
 | Planner plan validity | 100% |
 | Planner fallback rate | 0% |
 
+### Abstention and Evidence Handling
+
+| Metric | Latest Result |
+|---|---:|
+| Questions without expected sources | 2 |
+| Unsupported cases evaluated | 2 |
+| Correct abstention cases | 2 |
+| Correct abstention rate | 100% |
+| Abstention without retrieved sources | 50% |
+| Abstention with retrieved but unsupported evidence | 50% |
+| Empty expected-source-free rate | 100% |
+
+The two unsupported-evidence cases were handled through abstention. One case involved no retrieved documents, while the other involved retrieved documents that did not adequately support the requested answer.
+
+These results demonstrate correct abstention on the evaluated cases, but the sample of two cases is too small to establish general reliability.
+
 ### Critic and Answer Quality
 
-| Metric | Result |
+| Metric | Latest Result |
 |---|---:|
-| Critic pass rate | 55.88% |
-| Critic review availability | 89.47% |
-| Answer status accuracy | 52.50% |
-| Total revisions | 19 |
+| Critic pass rate | 62.50% |
+| Critic review availability | 84.21% |
+| Critic reviews attempted | 38 |
+| Critic reviews completed | 32 |
+| Answer status accuracy | 55.00% |
+| Answer status coverage | 100% |
+| Total revisions | 15 |
 | Answers with medical disclaimer | 100% |
+| Non-empty answer rate | 100% |
 | Duplicate citations | 0 |
 
-The Critic pass rate indicates that a significant proportion of answers still require improvement or fail the configured quality checks.
+The Critic pass rate is calculated from the available completed reviews. Review availability and completion are reported separately because not every attempted review produced a completed review.
 
-Answer status accuracy also requires attention: the system should better distinguish between supported answers, insufficient evidence, and cases where no documents were retrieved.
+Answer status accuracy measures the system's ability to classify answer outcomes correctly according to the benchmark's status labels. It should not be interpreted as a direct measurement of the Critic's intrinsic quality.
+
+These metrics identify answer classification and review consistency as areas for further investigation.
 
 ### Latency and Performance
 
-| Metric | Result |
+| Metric | Latest Result |
 |---|---:|
-| Average latency | 20.86 seconds |
-| Median latency | 19.14 seconds |
-| P95 latency | 38.35 seconds |
-| P99 latency | 49.13 seconds |
-| Maximum latency | 49.13 seconds |
-| Requests over 30-second budget | 12 / 40 |
-| 30-second latency budget compliance | 70% |
+| Average latency | 19.32 seconds |
+| Median latency | 16.84 seconds |
+| P95 latency | 35.47 seconds |
+| P99 latency | 40.18 seconds |
+| Maximum latency | 40.18 seconds |
+| Global latency budget | 30 seconds |
+| Requests over latency budget | 11 / 40 |
+| Latency budget compliance | 72.50% |
 
 ### Latency by Question Complexity
 
-| Question Type | Questions | Average Latency |
+| Question Type | Questions | Average Latency | Target | Target Met |
+|---|---:|---:|---:|---:|
+| Simple | 14 | 13.34 s | 8 s | 35.71% |
+| Multi-document | 7 | 14.19 s | 15 s | 42.86% |
+| Complex | 13 | 27.70 s | 25 s | 46.15% |
+| Multi-hop | 6 | 21.08 s | 30 s | 50.00% |
+
+The latency profiles also define maximum acceptable limits for each question type:
+
+| Question Type | Maximum Limit | Maximum Limit Met |
 |---|---:|---:|
-| Simple | 14 | 13.60 s |
-| Multi-document | 7 | 19.63 s |
-| Complex | 13 | 28.65 s |
-| Multi-hop | 6 | 22.36 s |
+| Simple | 15 s | 78.57% |
+| Multi-document | 25 s | 85.71% |
+| Complex | 40 s | 92.31% |
+| Multi-hop | 45 s | 100% |
+
+Overall, 87.50% of requests met their corresponding question-class maximum latency limits.
 
 ### Tool Usage
+
+The architecture provides six specialized tools. Five were used during this benchmark execution.
 
 | Tool | Number of Uses |
 |---|---:|
 | Search | 39 |
-| Extract | 30 |
-| Compare | 10 |
-| Interaction | 7 |
+| Extract | 28 |
+| Compare | 11 |
+| Interaction | 5 |
 | Glossary | 4 |
-| Verify | 1 |
+| Verify | 0 |
 
-All six tools were used during the benchmark.
+Additional tool execution statistics:
+
+| Metric | Result |
+|---|---:|
+| Questions using at least one tool | 39 / 40 |
+| Unique tools used | 5 / 6 |
+| Total tool executions | 87 |
+
+The `verify` tool remains available to the planner but was not selected during this particular benchmark execution.
 
 ### Planner and Execution Metrics
 
-| Metric | Result |
+| Metric | Latest Result |
 |---|---:|
 | Planner plans generated | 39 |
 | Planner plan validity | 100% |
 | Planner fallback rate | 0% |
 | Planned tool execution rate | 100% |
 | Questions using at least one tool | 39 / 40 |
-| Total revisions | 19 |
 
-### Interpretation
+The planner generated valid execution plans for all 39 planned questions, and all planned tool executions were completed according to the evaluation report.
 
-The evaluation demonstrates that the system successfully executed all 40 benchmark questions and achieved strong retrieval performance.
+### Evaluation Interpretation
 
-The source recall of 95.61% indicates that the retrieval pipeline generally identifies the expected documents. The grounding score of 89.92% provides an additional signal about how well answers are supported by retrieved evidence.
+The latest evaluation demonstrates reliable execution across all 40 benchmark questions, with a 100% execution success rate.
 
-The planner also demonstrated consistent execution, with a 100% valid plan rate and no fallback during the benchmark.
+The retrieval pipeline achieved a strong source recall of 95.61%, indicating that it successfully identifies most expected source documents. The average grounding score reached 91.49%, while required-term recall reached 96.25%.
 
-However, the results identify several areas for improvement:
+The system also demonstrated consistent orchestration:
 
-- Critic pass rate: 55.88%.
-- Answer status accuracy: 52.50%.
-- Latency budget compliance: 70%.
-- Source policy compliance: 90%.
+- 100% planner plan validity.
+- 100% planned tool execution rate.
+- 0% planner fallback rate.
+- 100% correct abstention on the two unsupported-evidence cases.
+- 0% unsupported answer rate on this benchmark.
 
-The results are based on a limited benchmark and should not be interpreted as clinical validation or proof of medical correctness.
+The Critic pass rate reached 62.50%, with a review availability of 84.21%. These metrics should be interpreted in the context of the benchmark, its evaluation criteria, and the 32 completed Critic reviews. They are not standalone measures of the Critic's intrinsic quality.
 
-A 0% unsupported answer rate on this benchmark does not guarantee that the system will never generate unsupported answers on unseen questions. The two unsupported-evidence scenarios in the benchmark are also too few to establish general reliability.
+Answer status accuracy reached 55%, indicating that answer classification remains an area for improvement.
+
+Average latency was 19.32 seconds, and 72.50% of requests met the global 30-second latency budget.
+
+Overall, the results demonstrate a functional Agentic RAG pipeline with strong retrieval coverage, grounding, and execution reliability. Further improvements should focus on source precision, answer status classification, and latency optimization.
+
+The benchmark contains only 40 questions and does not constitute clinical validation or proof of medical correctness. A 0% unsupported answer rate on this dataset does not guarantee the absence of unsupported answers on unseen questions.
 
 ---
 
@@ -483,23 +533,27 @@ A 0% unsupported answer rate on this benchmark does not guarantee that the syste
 
 **1. Answer status classification**
 
-The answer status accuracy of 52.50% indicates that the system needs better classification of answer outcomes.
+The answer status accuracy of 55% indicates that the system needs better classification of answer outcomes according to the benchmark's expected status labels.
 
-**2. Critic reliability**
+**2. Critic review coverage and consistency**
 
-The Critic pass rate of 55.88% suggests that answer review criteria and revision behavior should be improved.
+The Critic review availability is 84.21%, with 32 completed reviews out of 38 attempts. The pass rate of 62.50% should be analyzed alongside review completion and the configured acceptance criteria.
 
 **3. Retrieval precision**
 
-Source precision of 83.38% leaves room to reduce irrelevant document retrieval.
+Source precision of 77.46% leaves room to reduce irrelevant document retrieval while preserving the strong source recall of 95.61%.
 
 **4. Latency**
 
-Only 70% of requests met the global 30-second latency budget. Simple and multi-document questions should be optimized first.
+Only 72.50% of requests met the global 30-second latency budget. Simple and complex questions should be optimized, with particular attention to unnecessary LLM calls and review latency.
 
 **5. Evaluation coverage**
 
 A 40-question benchmark is useful for development but is not sufficient to establish general reliability across all medical questions.
+
+**6. Tool utilization**
+
+The `verify` tool was not selected during this benchmark. Its selection conditions and integration should be reviewed to determine whether it is needed for additional question types.
 
 ### Proposed Improvements
 
@@ -507,7 +561,7 @@ A 40-question benchmark is useful for development but is not sufficient to estab
 |---|---|
 | Retrieval | Improve chunking, metadata filtering, reranking, and top-k selection |
 | Planner | Improve tool selection and reduce unnecessary tool calls |
-| Critic | Refine evaluation criteria and revision prompts |
+| Critic | Refine evaluation criteria, review availability, and revision prompts |
 | Generation | Improve evidence attribution and structured answer generation |
 | Latency | Optimize retrieval, parallelize independent operations, and reduce redundant LLM calls |
 | Abstention | Improve detection of missing or insufficient evidence |
@@ -550,6 +604,7 @@ The application should then be accessible at:
 
 - **Web interface:** http://localhost:8000/
 - **API documentation:** http://localhost:8000/docs
+- **Health check:** http://localhost:8000/health
 
 The Docker commands above launch the application. They are separate from the benchmark execution command described in Section 5.
 
@@ -590,7 +645,7 @@ This project demonstrates how an LLM can be integrated into an agentic RAG archi
 
 Its main contribution is the combination of hybrid retrieval, explicit planning, specialized tools, evidence-grounded generation, and automated quality evaluation.
 
-The baseline evaluation provides measurable evidence of system behavior and highlights concrete directions for future improvement.
+The latest benchmark provides measurable evidence of system behavior and highlights concrete directions for future improvement.
 
 **Knowledge comes from the corpus. Intelligence comes from the LLM and orchestration. Trust comes from evidence, citations, and verification.**
 
