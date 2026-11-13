@@ -364,11 +364,14 @@ Each report preserves the results of a particular execution, allowing performanc
 
 **Important:** The benchmark command evaluates the running application. It does not start the application itself. Make sure the API is accessible at `http://localhost:8000` before starting the evaluation.
 
-<a href="https://drive.google.com/file/d/158mG4zJWmh36O7me5iJHRYCKC9S_BXjU/view?usp=sharing">
-  <img src="https://drive.google.com/file/d/158mG4zJWmh36O7me5iJHRYCKC9S_BXjU/view?usp=sharing"
-       alt="Agentic RAG Demo"
-       width="800">
-</a>
+## 🎥 Project Demonstration
+
+<p align="center">
+  <video width="100%" controls>
+    <source src="https://drive.google.com/uc?export=download&id=158mG4zJWmh36O7me5iJHRYCKC9S_BXjU" type="video/mp4">
+    Your browser does not support video playback.
+  </video>
+</p>
 ---
 
 ## 6. Evaluation Results
